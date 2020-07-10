@@ -1,0 +1,125 @@
+.overlay{
+    position: fixed; /* Sit on top of the page content */
+    /* display: none; /\* Hidden by default *\/ */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.2); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+}
+.speech-display {
+    padding: 0 16px;
+    width: 456px;
+    height: 550px;
+    overflow-y: scroll;
+    box-sizing: border-box;
+    margin: auto;
+    border-style: solid;
+    border-width: 1px;
+
+}
+
+.speech-item.left:before, .speech-item.right:before{
+    position: absolute;
+    content: '';
+    bottom: -16px;
+    height: 16px;
+    width: 16px;
+    border-style: solid;
+    border-width: 10px;
+    box-sizing: border-box
+}
+
+.speech-item {
+    font-size: 14px;
+    line-height: 22px;
+    max-width: 256px;
+    padding: 16px;
+    word-break: break-all;
+    box-sizing: border-box;
+    margin: 16px 0;
+    position: relative
+}
+
+/* color before: #62d187 */
+.speech-item.right {
+    margin-left: auto;
+    color: #fff;
+    background-color: #394be6
+}
+
+.speech-item.right:before {
+    right: 16px;
+    border-color: #394be6 #394be6 transparent transparent
+}
+
+.speech-item.left {
+    margin-right: auto;
+    color: #333;
+    background-color: #eee
+}
+
+.speech-item.left:before {
+    left: 16px;
+    border-color: #eee transparent transparent #eee
+}
+
+.submit-area{
+    padding: 16px 0px;
+    width: 456px;
+    box-sizing: border-box;
+    margin: auto;
+    text-align: center;
+}
+
+#text{
+    width: 380px;
+    height: 3em;
+}
+#submit{
+    width: ;
+    height: 3em;
+}
+h1 {
+    text-align: center;
+}
+
+
+
+/* Just for hr-like line */
+/* https://stackoverflow.com/a/22603610/7057866 */
+.strike {
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap; 
+}
+
+.strike > span {
+    position: relative;
+    display: inline-block;
+}
+
+.strike > span:before,
+.strike > span:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 9999px;
+    height: 2px;
+    background: gray;
+}
+
+.strike > span:before {
+    right: 100%;
+    margin-right: 15px;
+}
+
+.strike > span:after {
+    left: 100%;
+    margin-left: 15px;
+}

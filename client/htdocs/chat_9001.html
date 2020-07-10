@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>chat system</title>
+        <!-- <script src="js/jquery-3.3.1.min.js"></script> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+        <script src="js/script_chat.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+
+    </head>
+    <style>
+     #agent_port{
+         display:none;
+     }
+     /* custom css for dialog */
+     .no-close .ui-dialog-titlebar-close {
+         display: none;
+    }
+    </style>
+    <body>
+        <span id="agent_port">9001</span>
+        <span id="username_placeholder"></span>
+        <h1 class="centered">Chat console</h1>
+        <div class="box">
+            <div class='speech-display'>
+            </div>
+            <div class='submit-area'>
+                <input type="text" id="text">
+                <input type='button' value="send" id="submit">
+            </div>
+        </div>
+        <div id="dialog" title="Before playing Pommerman...">
+            <p>Please fill out the following for us. (These information will be used only for this research)</p>
+            <p>The left hand side of the UChicago or TTIC email: <br>
+                (If you don't have one, just type your name) <br>
+                <input type="text" id="username" placeholder="username"> @ttic.edu / @uchicago.edu
+            </p>
+            <p>How old are you?<br>
+                <input type="number" id="age" name="age" min="1" max="200">
+            </p>
+            <p>Are you a native English speaker?<br>
+                <select id="native_speaker">
+                    <option value="no">No</option>
+                    <option value="yes">Yes</option>
+                </select>
+            </p>
+            <p>Have you played "Bomberman" before? <br>(a famous game especially in Japan)<br>
+            <select id="played_bomberman">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+            </p>
+        </div>
+        <div id="dialog-waiting" title="Please wait...">
+            <p>Waiting for the other player...</p>
+            <!-- <p>Waiting for the game server...<br> -->
+            <!-- (It will take ~10 seconds.) -->
+            <!-- </p> -->
+        </div>
+    </body>
+</html>
