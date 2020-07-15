@@ -13,7 +13,7 @@ Pre-requisites:
 * Docker (used to run the enemy agents)
 
 <!-- Pre-requisite: please install the modified Pommerman environment by following the instruction in [this repository](https://github.com/takuma-ynd/pommerman-network/tree/multi-play-over-network) -->
-1. (Server, ClientA, ClientB): Install the modified Pommerman environment  
+1. (Server, ClientA, ClientB): Install the modified Pommerman environment
 ```
 $ git clone -b multi-play-over-network https://github.com/takuma-ynd/pommerman-network.git  ~/pommerman-network
 $ cd ~/pommerman-network
@@ -32,6 +32,6 @@ For example, `ssh -L 9000:localhost:9000 -L 8000:localhost:8000 server.com`
 The web page works as a text-based chat console whose information is synchronized with game engine.
 8. (Client B): Run `python client/client.py --port 9001` and open `client/htdocs/chat_9001.html`
 
-Once both players input the username and click "Play", the game will automatically start.
+Once both players input username and click "Play", the game will automatically start.
 ## Brief description of how the system works
 Coming soon...
