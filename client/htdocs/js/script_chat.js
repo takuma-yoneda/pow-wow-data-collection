@@ -97,13 +97,17 @@ function user_input_dialog(){
                 // icon: "ui-icon-submit",
                 click: function() {
                     username = $("#username").val();
-                    let age = $("#age").val();
-                    let played_bomberman = $("#played_bomberman option:selected").val();
-                    let is_native_speaker = $("#native_speaker option:selected").val();
+                    // let age = $("#age").val();
+                    // let played_bomberman = $("#played_bomberman option:selected").val();
+                    // let is_native_speaker = $("#native_speaker option:selected").val();
+                    let age = "-1";
+                    let played_bomberman = "no";
+                    let is_native_speaker = "no";
+
                     if (username != "" && age != ""){
                         $( this ).dialog( "close" );
                         $("#dialog-waiting").dialog("open");
-                        submit_to_sheet(username, age, is_native_speaker, played_bomberman);
+                        // submit_to_sheet(username, age, is_native_speaker, played_bomberman);
                         waiting_dialog();
 
                     }
@@ -161,38 +165,6 @@ function waiting_dialog(){
     }).catch(function(err) {
         // Polling timed out, handle the error!
         console.log(err);
-    });
-}
-
-function submit_to_sheet(username, age, is_native_speaker, played_bomberman){
-    let hostUrl = 'https://script.google.com/macros/s/AKfycbyAi9iOt2RVy38PRDqWZ64FlV8_IHYhKvrJ8hGZS9lqd_HuRcU/exec';
-    $.ajax({
-        url: hostUrl,
-        type:'POST',
-        contentType: 'application/x-www-form-urlencoded', //"application/json; charset=utf-8", <-- I don't know how to fix the GAS to accept this...
-        data : ({
-            username: username,
-            age: age,
-            played_bomberman: played_bomberman,
-            is_native_speaker: is_native_speaker,
-        }),
-        timeout:10000,  // Google App Service is very slow to respond.
-        retryLimit: 3,
-        success: function(data){
-            // console.log(data);
-        },
-        error: function(XMLHttpRequest, textStatus, errorThrown) {
-            // retry Ajax: https://stackoverflow.com/a/10024557
-            console.log(XMLHttpRequest, textStatus, errorThrown);
-            this.retryLimit--;
-            if(this.retryLimit > 0){
-                console.log('retrying (remaining: ' + this.retryLimit + ') request to ' + hostUrl );
-                // NOTE: anonymous func doesn't work because 'this' will point to a wrong object.
-                // setTimeout(function() {$.ajax(this); }, 500);
-                setTimeout(() => {$.ajax(this);}, 1000);
-                return;
-            }
-        }
     });
 }
 
